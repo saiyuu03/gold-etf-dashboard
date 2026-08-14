@@ -140,12 +140,12 @@
 <header>
   <h1>金ETF ダッシュボード</h1>
   <p>出典：World Gold Council（世界金評議会）／月次データ　最新基準日 2026年7月31日
-     ・このページ生成 2026年08月14日 22:00</p>
+     ・このページ生成 2026年08月15日 01:00</p>
   <p class="checkrow">
     <span title="中身（数値）が最後に変わった日時">データ取得日時：2026-08-11T09:00:04Z</span>
     <span class="sep">|</span>
     <span title="中身の変化に関わらず、直近でシステムが確認処理を実行した日時（生存確認）">
-      最終確認日時：2026-08-14T13:00:08Z
+      最終確認日時：2026-08-14T16:00:04Z
     </span>
   </p>
   <p class="checkrow">
@@ -453,6 +453,44 @@
   
 </section>
 
+<section class="card estimate-card">
+  <h2>⑦ GLD当日推定値 <span class="badge-estimate">推定・参考値</span></h2>
+  <p class="sub">対象日 2026年8月14日　算出時刻(UTC) 2026-08-14T16:00:13Z</p>
+  <div class="estimate-disclaimer">
+    <p><strong>これは公式発表前の推定値であり、確定保有量ではありません。</strong></p>
+    <p>翌日、公式データ（⑤GLD保有量の推移）で確定値に置き換わります。</p>
+    <p>この推定値に価格予測力があることは確認されていません（2026-08-14検証済み。
+       過去データでの回帰のR²は2.03%、残差の標準偏差は±4.2トンで、
+       個別日の予測にはほぼ使えません）。</p>
+    <p>算出方法: 前日確定保有量 × LBMA金価格(無料API) の比率と、GLD現在値から
+       乖離率を逆算しています。GLD公式アーカイブの公表（T日22:10 ET頃）より
+       理論上6時間10分早く算出できるという未検証の仮定に基づきます
+       （前提: LBMA PM Fixが概ね10:00-10:30am ET頃に確定するという業界一般情報に基づく
+       推定であり、実際の掲載時刻は個別に計測していません）。</p>
+    <p>この乖離率の算出には、値決め時刻の異なる2つの価格（LBMA PM Fixと
+       GLD終値、時差約5.5〜6時間）の差分を使っているため、当日の金価格変動と
+       強く連動します（2026-08-14の検証で相関r=+0.615を確認）。
+       「純粋な裁定機会としてのプレミアム」ではなく「当日の金価格変動＋
+       小さなプレミアム」の合成値である点に注意してください。</p>
+  </div>
+  <p class="notice notice-warning">本日分のLBMA金価格がまだ公表されていないため、前日確定分のスポット価格をそのまま使っています（プレミアムはGLD株価の動きのみを反映）。</p>
+  <table class="estimate-table">
+    <tbody>
+      <tr><th scope="row">推定乖離率</th>
+          <td class="num">+0.437%（株価がやや高め）</td></tr>
+      <tr><th scope="row">参考: 過去統計に基づく期待Δ保有量</th>
+          <td class="num">+0.51トン（実際の分布は±4.2トン程度と広く
+          散らばります。予測ではなく参考値です）</td></tr>
+      <tr><th scope="row">GLD現在値</th>
+          <td class="num">$402.88
+          （2026-08-14T12:00:05-0400）</td></tr>
+      <tr><th scope="row">前日確定NAV/株（基準）</th>
+          <td class="num">$401.1279
+          （2026年8月13日確定分）</td></tr>
+    </tbody>
+  </table>
+</section>
+
 <section class="card">
   <h2>② 月次フロー（直近24ヶ月・百万US$）</h2>
   <p class="sub">ゼロ線より上が資金の流入、下が流出</p>
@@ -592,10 +630,10 @@
 
 <script id="dashboard-data" type="application/json">
 {
-  "generated_at": "2026年08月14日 22:00",
+  "generated_at": "2026年08月15日 01:00",
   "source": "World Gold Council (WGC) monthly ETF flows/holdings",
   "retrieved_at": "2026-08-11T09:00:04Z",
-  "last_checked_at": "2026-08-14T13:00:08Z",
+  "last_checked_at": "2026-08-14T16:00:04Z",
   "as_of_date": "2026-07-31",
   "gld_daily": {
     "as_of_date": "2026-08-13",
@@ -2408,7 +2446,37 @@
     "direction": "inflow",
     "text_ja": "2026年7月の世界の金ETFは、29.7億US$の流入超（+23.5トン）でした。前月は流出超（92.4億US$）だったので、向きが逆転しました。保有量は4,068トン（前月比 +23.5トン）です。"
   },
-  "gld_estimate": null,
+  "gld_estimate": {
+    "computed_at_utc": "2026-08-14T16:00:13Z",
+    "target_date": "2026-08-14",
+    "last_confirmed_date": "2026-08-13",
+    "last_confirmed_nav_per_share_usd": 401.12789,
+    "lbma_spot_base": {
+      "date": "2026-08-13",
+      "value": 4373.0,
+      "kind": "PM"
+    },
+    "lbma_spot_today": {
+      "date": "2026-08-14",
+      "value": 4373.0,
+      "kind": "PM",
+      "is_stale": true
+    },
+    "gld_current_price_usd": 402.88,
+    "gld_current_price_as_of_et": "2026-08-14T12:00:05-0400",
+    "implied_nav_per_share_usd": 401.12789,
+    "premium_pct": 0.4368,
+    "reference_next_flow_tonnes": 0.511,
+    "regression": {
+      "intercept": 0.132417,
+      "slope": 0.866108,
+      "r2": 0.020281,
+      "resid_std": 4.158289,
+      "fitted_on": "2026-08-14",
+      "fitted_n": 5464
+    },
+    "disclaimer_ja": "公式発表前の推定値であり確定保有量ではない。翌日に公式データで置き換わる。価格予測力があることは確認されていない(2026-08-14検証済み、DESIGN.md「不採用としたシグナル候補」参照)。トレードシグナルではない。"
+  },
   "status": {
     "notices": [],
     "exec_monitor_24h": {
@@ -2417,8 +2485,8 @@
       "min_required": 9
     },
     "freshness_days": {
-      "gld_daily": 1,
-      "slv_daily": 1,
+      "gld_daily": 2,
+      "slv_daily": 2,
       "stale_threshold_days": 6
     }
   }
