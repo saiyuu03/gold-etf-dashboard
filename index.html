@@ -65,6 +65,31 @@
   }
   :root[data-theme="dark"] p.notice-warning { color: #e0a94a; }
   :root[data-theme="dark"] p.notice-error { color: #f08080; }
+  .estimate-card {
+    border: 2px dashed #a8641a; background: rgba(214,150,42,0.06);
+  }
+  .badge-estimate {
+    display: inline-block; margin-left: 8px; padding: 2px 9px;
+    border-radius: 999px; font-size: .68rem; font-weight: 700;
+    background: #a8641a; color: #fff; vertical-align: middle;
+    letter-spacing: .02em;
+  }
+  .estimate-disclaimer {
+    background: rgba(214,150,42,0.10); border-radius: 8px;
+    padding: 10px 14px; margin: 10px 0 14px; font-size: .82rem;
+    color: var(--text-secondary);
+  }
+  .estimate-disclaimer p { margin: 4px 0; }
+  .estimate-disclaimer p strong { color: #a8641a; }
+  table.estimate-table th, table.estimate-table td { font-size: .86rem; }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .estimate-card { border-color: #e0a94a; }
+    :root:where(:not([data-theme="light"])) .badge-estimate { background: #e0a94a; color: #1a1a19; }
+    :root:where(:not([data-theme="light"])) .estimate-disclaimer p strong { color: #e0a94a; }
+  }
+  :root[data-theme="dark"] .estimate-card { border-color: #e0a94a; }
+  :root[data-theme="dark"] .badge-estimate { background: #e0a94a; color: #1a1a19; }
+  :root[data-theme="dark"] .estimate-disclaimer p strong { color: #e0a94a; }
   .card {
     background: var(--surface-1); border: 1px solid var(--border);
     border-radius: 12px; padding: 20px 22px; margin-top: 20px;
@@ -115,12 +140,12 @@
 <header>
   <h1>金ETF ダッシュボード</h1>
   <p>出典：World Gold Council（世界金評議会）／月次データ　最新基準日 2026年7月31日
-     ・このページ生成 2026年08月14日 18:00</p>
+     ・このページ生成 2026年08月14日 18:03</p>
   <p class="checkrow">
     <span title="中身（数値）が最後に変わった日時">データ取得日時：2026-08-11T09:00:04Z</span>
     <span class="sep">|</span>
     <span title="中身の変化に関わらず、直近でシステムが確認処理を実行した日時（生存確認）">
-      最終確認日時：2026-08-14T09:00:10Z
+      最終確認日時：2026-08-14T09:03:50Z
     </span>
   </p>
   <p class="checkrow">
@@ -132,7 +157,7 @@
       SLV最終営業日：2026年8月13日
     </span>
   </p>
-  <p class="notice notice-warning">注意: SLVの直近24時間の観測回数が8件（想定9件）にとどまっています。取得処理が一部失敗している可能性があります。</p>
+  
 </header>
 
 <section class="card summary">
@@ -567,10 +592,10 @@
 
 <script id="dashboard-data" type="application/json">
 {
-  "generated_at": "2026年08月14日 18:00",
+  "generated_at": "2026年08月14日 18:03",
   "source": "World Gold Council (WGC) monthly ETF flows/holdings",
   "retrieved_at": "2026-08-11T09:00:04Z",
-  "last_checked_at": "2026-08-14T09:00:10Z",
+  "last_checked_at": "2026-08-14T09:03:50Z",
   "as_of_date": "2026-07-31",
   "gld_daily": {
     "as_of_date": "2026-08-13",
@@ -2383,17 +2408,12 @@
     "direction": "inflow",
     "text_ja": "2026年7月の世界の金ETFは、29.7億US$の流入超（+23.5トン）でした。前月は流出超（92.4億US$）だったので、向きが逆転しました。保有量は4,068トン（前月比 +23.5トン）です。"
   },
+  "gld_estimate": null,
   "status": {
-    "notices": [
-      {
-        "level": "warning",
-        "code": "exec_monitor_slv_daily",
-        "text_ja": "注意: SLVの直近24時間の観測回数が8件（想定9件）にとどまっています。取得処理が一部失敗している可能性があります。"
-      }
-    ],
+    "notices": [],
     "exec_monitor_24h": {
-      "gld_daily_observations": 10,
-      "slv_daily_observations": 8,
+      "gld_daily_observations": 12,
+      "slv_daily_observations": 9,
       "min_required": 9
     },
     "freshness_days": {
