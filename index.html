@@ -52,6 +52,19 @@
   header p { margin: 0; color: var(--text-secondary); font-size: .85rem; }
   header p.checkrow { margin-top: 4px; font-variant-numeric: tabular-nums; }
   header p.checkrow .sep { margin: 0 8px; color: var(--text-muted); }
+  p.notice {
+    margin: 8px 0 0; padding: 7px 12px; border-radius: 8px;
+    font-size: .82rem; border: 1px solid var(--border);
+  }
+  p.notice-info { background: rgba(42,120,214,0.10); color: var(--text-secondary); }
+  p.notice-warning { background: rgba(214,150,42,0.14); color: #a8641a; }
+  p.notice-error { background: rgba(208,59,59,0.14); color: #b62d2d; }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) p.notice-warning { color: #e0a94a; }
+    :root:where(:not([data-theme="light"])) p.notice-error { color: #f08080; }
+  }
+  :root[data-theme="dark"] p.notice-warning { color: #e0a94a; }
+  :root[data-theme="dark"] p.notice-error { color: #f08080; }
   .card {
     background: var(--surface-1); border: 1px solid var(--border);
     border-radius: 12px; padding: 20px 22px; margin-top: 20px;
@@ -102,7 +115,7 @@
 <header>
   <h1>金ETF ダッシュボード</h1>
   <p>出典：World Gold Council（世界金評議会）／月次データ　最新基準日 2026年7月31日
-     ・このページ生成 2026年08月14日 13:00</p>
+     ・このページ生成 2026年08月14日 13:26</p>
   <p class="checkrow">
     <span title="中身（数値）が最後に変わった日時">データ取得日時：2026-08-11T09:00:04Z</span>
     <span class="sep">|</span>
@@ -119,6 +132,7 @@
       SLV最終営業日：2026年8月13日
     </span>
   </p>
+  <p class="notice notice-warning">注意: SLVの直近24時間の観測回数が8件（想定9件）にとどまっています。取得処理が一部失敗している可能性があります。</p>
 </header>
 
 <section class="card summary">
@@ -553,7 +567,7 @@
 
 <script id="dashboard-data" type="application/json">
 {
-  "generated_at": "2026年08月14日 13:00",
+  "generated_at": "2026年08月14日 13:26",
   "source": "World Gold Council (WGC) monthly ETF flows/holdings",
   "retrieved_at": "2026-08-11T09:00:04Z",
   "last_checked_at": "2026-08-14T04:00:04Z",
@@ -2368,6 +2382,25 @@
     "prev_holdings_tonnes": 4044.49,
     "direction": "inflow",
     "text_ja": "2026年7月の世界の金ETFは、29.7億US$の流入超（+23.5トン）でした。前月は流出超（92.4億US$）だったので、向きが逆転しました。保有量は4,068トン（前月比 +23.5トン）です。"
+  },
+  "status": {
+    "notices": [
+      {
+        "level": "warning",
+        "code": "exec_monitor_slv_daily",
+        "text_ja": "注意: SLVの直近24時間の観測回数が8件（想定9件）にとどまっています。取得処理が一部失敗している可能性があります。"
+      }
+    ],
+    "exec_monitor_24h": {
+      "gld_daily_observations": 10,
+      "slv_daily_observations": 8,
+      "min_required": 9
+    },
+    "freshness_days": {
+      "gld_daily": 1,
+      "slv_daily": 1,
+      "stale_threshold_days": 6
+    }
   }
 }
 </script>
