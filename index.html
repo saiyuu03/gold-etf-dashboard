@@ -52,6 +52,16 @@
   header p { margin: 0; color: var(--text-secondary); font-size: .85rem; }
   header p.checkrow { margin-top: 4px; font-variant-numeric: tabular-nums; }
   header p.checkrow .sep { margin: 0 8px; color: var(--text-muted); }
+  /* 月次(世界合計)ブロックと日次(GLD/SLV)ブロックの境目。ラベル＋罫線で視覚的に分ける。
+     「データ取得日時」が月次専用の値であることを日次と混同されたため追加（2026-08-15）。 */
+  header p.dailyhead {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 12px; font-size: .78rem; color: var(--text-muted);
+    letter-spacing: .02em;
+  }
+  header p.dailyhead::after {
+    content: ""; flex: 1 1 auto; height: 1px; background: var(--border);
+  }
   p.notice {
     margin: 8px 0 0; padding: 7px 12px; border-radius: 8px;
     font-size: .82rem; border: 1px solid var(--border);
@@ -140,14 +150,15 @@
 <header>
   <h1>金ETF ダッシュボード</h1>
   <p>出典：World Gold Council（世界金評議会）／月次データ　最新基準日 2026年7月31日
-     ・このページ生成 2026年08月15日 13:14</p>
+     ・このページ生成 2026年08月15日 14:14</p>
   <p class="checkrow">
-    <span title="中身（数値）が最後に変わった日時">データ取得日時：2026-08-11T09:00:04Z</span>
+    <span title="世界合計（①〜④・月次）の中身（数値）が最後に変わった日時。GLD/SLVの日次データとは別枠">データ取得日時（月次・世界合計）：2026-08-11T09:00:04Z</span>
     <span class="sep">|</span>
     <span title="中身の変化に関わらず、直近でシステムが確認処理を実行した日時（生存確認）">
       最終確認日時：2026-08-15T04:14:07Z
     </span>
   </p>
+  <p class="dailyhead"><span>↓ ここから日次（GLD／SLV）</span></p>
   <p class="checkrow">
     <span title="GLD(SPDR Gold Shares)日次保有量データの最新営業日。世界合計(①〜④)の月次基準日とは別枠">
       GLD最終営業日：2026年8月13日
@@ -630,7 +641,7 @@
 
 <script id="dashboard-data" type="application/json">
 {
-  "generated_at": "2026年08月15日 13:14",
+  "generated_at": "2026年08月15日 14:14",
   "source": "World Gold Council (WGC) monthly ETF flows/holdings",
   "retrieved_at": "2026-08-11T09:00:04Z",
   "last_checked_at": "2026-08-15T04:14:07Z",
