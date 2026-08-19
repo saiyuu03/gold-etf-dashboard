@@ -150,12 +150,12 @@
 <header>
   <h1>金ETF ダッシュボード</h1>
   <p>出典：World Gold Council（世界金評議会）／月次データ　最新基準日 2026年7月31日
-     ・このページ生成 2026年08月19日 07:00</p>
+     ・このページ生成 2026年08月19日 10:00</p>
   <p class="checkrow">
     <span title="世界合計（①〜④・月次）の中身（数値）が最後に変わった日時。GLD/SLVの日次データとは別枠">データ取得日時（月次・世界合計）：2026-08-11T09:00:04Z</span>
     <span class="sep">|</span>
     <span title="中身の変化に関わらず、直近でシステムが確認処理を実行した日時（生存確認）">
-      最終確認日時：2026-08-18T22:00:06Z
+      最終確認日時：2026-08-19T01:00:09Z
     </span>
   </p>
   <p class="dailyhead"><span>↓ ここから日次（GLD／SLV）</span></p>
@@ -466,7 +466,7 @@
 
 <section class="card estimate-card">
   <h2>⑦ GLD当日推定値 <span class="badge-estimate">推定・参考値</span></h2>
-  <p class="sub">対象日 2026年8月18日　算出時刻(UTC) 2026-08-18T22:00:14Z</p>
+  <p class="sub">対象日 2026年8月18日　算出時刻(UTC) 2026-08-19T01:00:16Z</p>
   <div class="estimate-disclaimer">
     <p><strong>これは公式発表前の推定値であり、確定保有量ではありません。</strong></p>
     <p>翌日、公式データ（⑤GLD保有量の推移）で確定値に置き換わります。</p>
@@ -484,13 +484,13 @@
        「純粋な裁定機会としてのプレミアム」ではなく「当日の金価格変動＋
        小さなプレミアム」の合成値である点に注意してください。</p>
   </div>
-  <p class="notice notice-warning">本日分のLBMA金価格がまだ公表されていないため、前日確定分のスポット価格をそのまま使っています（プレミアムはGLD株価の動きのみを反映）。</p>
+  
   <table class="estimate-table">
     <tbody>
       <tr><th scope="row">推定乖離率</th>
-          <td class="num">-1.378%（株価がやや低め）</td></tr>
+          <td class="num">-1.327%（株価がやや低め）</td></tr>
       <tr><th scope="row">参考: 過去統計に基づく期待Δ保有量</th>
-          <td class="num">-1.06トン（実際の分布は±4.2トン程度と広く
+          <td class="num">-1.02トン（実際の分布は±4.2トン程度と広く
           散らばります。予測ではなく参考値です）</td></tr>
       <tr><th scope="row">GLD現在値</th>
           <td class="num">$398.55
@@ -641,10 +641,10 @@
 
 <script id="dashboard-data" type="application/json">
 {
-  "generated_at": "2026年08月19日 07:00",
+  "generated_at": "2026年08月19日 10:00",
   "source": "World Gold Council (WGC) monthly ETF flows/holdings",
   "retrieved_at": "2026-08-11T09:00:04Z",
-  "last_checked_at": "2026-08-18T22:00:06Z",
+  "last_checked_at": "2026-08-19T01:00:09Z",
   "as_of_date": "2026-07-31",
   "gld_daily": {
     "as_of_date": "2026-08-17",
@@ -2454,7 +2454,7 @@
     "text_ja": "2026年7月の世界の金ETFは、29.7億US$の流入超（+23.5トン）でした。前月は流出超（92.4億US$）だったので、向きが逆転しました。保有量は4,068トン（前月比 +23.5トン）です。"
   },
   "gld_estimate": {
-    "computed_at_utc": "2026-08-18T22:00:14Z",
+    "computed_at_utc": "2026-08-19T01:00:16Z",
     "target_date": "2026-08-18",
     "last_confirmed_date": "2026-08-17",
     "last_confirmed_nav_per_share_usd": 404.119322,
@@ -2465,15 +2465,15 @@
     },
     "lbma_spot_today": {
       "date": "2026-08-18",
-      "value": 4405.8,
+      "value": 4403.5,
       "kind": "PM",
-      "is_stale": true
+      "is_stale": false
     },
     "gld_current_price_usd": 398.55,
     "gld_current_price_as_of_et": "2026-08-18T16:00:00-0400",
-    "implied_nav_per_share_usd": 404.119322,
-    "premium_pct": -1.3781,
-    "reference_next_flow_tonnes": -1.061,
+    "implied_nav_per_share_usd": 403.908356,
+    "premium_pct": -1.3266,
+    "reference_next_flow_tonnes": -1.017,
     "regression": {
       "intercept": 0.132417,
       "slope": 0.866108,
